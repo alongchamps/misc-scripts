@@ -3,7 +3,7 @@ dns/**
 random/**
 images/**
 interviews/**
-python/fastapi-testing/rack-root-testing/venv-rr/**
+/python/fastapi-testing/rack-root-testing/venv-rr/**
 python/fastapi-testing/rack-root-testing/backend/*.db
 __init__.py
 *.pyc
