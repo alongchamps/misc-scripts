@@ -2,7 +2,7 @@
 # Import necessary modules and classes
 from fastapi import Depends, HTTPException, Request
 from sqlalchemy.orm import Session
-from .database import get_db, Item, ItemCreate
+from .database import get_db, Item, ItemCreate, ItemUpdate
 
 def create_item(item: ItemCreate, db: Session = Depends(get_db)):
     db_item = Item(**item.model_dump())
@@ -20,6 +20,12 @@ def read_item(item_id: int, db: Session = Depends(get_db)):
     if db_item is None:
         raise HTTPException(status_code=404, detail="Item not found")
     return db_item
+
+def update_item(item_id: int, item: ItemUpdate, db: Session = Depends(get_db)):
+    # find our item ID in the database and update fields specified in the 'item' argument
+    itemsAffected = db.query(Item).filter(Item.id == item_id).update(dict(**item.model_dump(exclude_unset=True)))
+    db.commit()
+    return itemsAffected
 
 def delete_item(item_id: int, db: Session = Depends(get_db)):
     db_delete = db.query(Item).filter(Item.id == item_id).delete(synchronize_session="auto")
