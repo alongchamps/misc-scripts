@@ -18,8 +18,10 @@ router.add_api_route("/items/{item_id:int}", delete_item, methods=['DELETE'])
 app.include_router(router)
 
 origins = [
-    "http://localhost:3000",
-    "localhost:3000"
+    "http://localhost:8000",
+    "localhost:8000",
+    "http://localhost:5173",
+    "localhost:5173",
 ]
 
 app.add_middleware(
