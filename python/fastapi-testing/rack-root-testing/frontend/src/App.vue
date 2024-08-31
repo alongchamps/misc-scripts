@@ -42,15 +42,11 @@
 
 <template>
     <div>
-        <!-- Exapmle to link via a path -->
-        <router-link to="/">Home</router-link>
-        <router-link to="/items">Items</router-link>
-
         <!-- Example below this line to link by a name -->
-        <router-link :to="{ name: 'Home' }">Home by name</router-link>
-        <router-link :to="{ name: 'SingleItem' }">Item by name</router-link>
-        
+        <router-link :to="{ name: 'Home' }">Home</router-link>
+        <router-link :to="{ name: 'AllItems' }">Items</router-link>
     </div>
+    <br />
     <router-view />
 </template>
 

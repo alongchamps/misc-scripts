@@ -10,20 +10,19 @@ This template should help get you started developing with Vue 3 in Vite.
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
 
-```sh
-npm install
+# Run the backend and front end
+Terminal 1:
+```
+cd ~/github/misc-scripts/python/fastapi-testing/rack-root-testing
+source ./venv-rr/bin/activate
+fastapi dev backend/main.py
 ```
 
-### Compile and Hot-Reload for Development
-
-```sh
+Terminal 2:
+```
+cd ~/github/misc-scripts/python/fastapi-testing/rack-root-testing
+source ./venv-rr/bin/activate
+cd frontend
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```

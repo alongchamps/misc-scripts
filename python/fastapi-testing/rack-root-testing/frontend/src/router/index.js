@@ -1,7 +1,9 @@
 
 import { createRouter, createWebHistory } from 'vue-router'
 
+import HomePage from '../views/HomePage.vue'
 import AllItems from '../views/AllItems.vue'
+import NewItem from '../views/NewItem.vue'
 import SingleItem from '../views/SingleItem.vue'
 import FourOhFourView from '../views/404.vue'
 
@@ -11,10 +13,20 @@ const router = createRouter({
         {
             path: '/',
             name: 'Home',
-            component: AllItems
+            component: HomePage
         },
         {
             path: '/items',
+            name: 'AllItems',
+            component: AllItems
+        },
+        {
+            path: '/items/new',
+            name: 'NewItem',
+            component: NewItem
+        },
+        {
+            path: '/items/:id(\\d+)',
             name: 'SingleItem',
             component: SingleItem
         },
