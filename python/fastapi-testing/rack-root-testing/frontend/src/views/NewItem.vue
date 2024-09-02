@@ -1,8 +1,29 @@
 <script>
     export default {
+        data(){
+            return {
+                form: {
+                    itemName: '',
+                    itemDescription: ''
+                }
+            }
+        },
         methods: {
             async newItem() {
-                // todo
+                const res = await fetch('http://localhost:8000/items/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                            name: this.itemName,
+                            description: this.itemDescription
+                        })
+                    // body: JSON.stringify(this.form)
+                })
+                // .then(this.$router.push('/items'))
+                // todo: make this go to the SingleItem.vue page for the new item
+                // the backend may need to return the new ID
                 this.$router.push('/items')
             },
         },
@@ -13,9 +34,9 @@
     <h2>Make a new item</h2><br />
     <form v-on:submit.prevent="newItem()">
         <p>Name</p>
-        <input v-model="name" placeholder="Device name" />
+        <input v-model="itemName" />
         <p>Description</p>
-        <input v-model="description" placeholder="Description" />
+        <input v-model="itemDescription" />
         <br /><br />
         <button>Create Item</button>
     </form>

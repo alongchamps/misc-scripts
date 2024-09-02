@@ -36,9 +36,9 @@
 <template>
     <h2>Single item page</h2><br />
     <ul>
-        <li>{{ item.name }}</li>
-        <li>{{ item.description }}</li>
-        <li>{{ item.id }}</li>
+        <li>Name: {{ item.name }}</li>
+        <li>Description: {{ item.description }}</li>
+        <li>Item ID in the DB: {{ item.id }}</li>
     </ul>
     <br />
     <form @submit.prevent="deleteItem(item.id)">
