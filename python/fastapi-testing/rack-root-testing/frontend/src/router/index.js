@@ -5,6 +5,7 @@ import HomePage from '../views/HomePage.vue'
 import AllItems from '../views/AllItems.vue'
 import NewItem from '../views/NewItem.vue'
 import SingleItem from '../views/SingleItem.vue'
+import EditItem from '../views/EditItem.vue'
 import FourOhFourView from '../views/404.vue'
 
 const router = createRouter({
@@ -29,6 +30,11 @@ const router = createRouter({
             path: '/items/:id(\\d+)',
             name: 'SingleItem',
             component: SingleItem
+        },
+        {
+            path: '/items/:id(\\d+)/edit',
+            name: 'EditItem',
+            component: EditItem
         },
         {
             path: '/:catchAll(.*)',

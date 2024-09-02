@@ -25,6 +25,9 @@
                     .then(data => console.log(data));
                 
                 this.$router.push('/items');
+            },
+            async editItem(id) {
+                this.$router.push('/items/' + id + '/edit')
             }
         },
         mounted() {
@@ -43,5 +46,8 @@
     <br />
     <form @submit.prevent="deleteItem(item.id)">
         <button>Delete Item</button>
+    </form>
+    <form @submit.prevent="editItem(item.id)">
+        <button>Edit Item</button>
     </form>
 </template>

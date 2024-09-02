@@ -15,9 +15,8 @@
                 fetch('http://localhost:8000/items/' + id, {
                     method: 'DELETE'
                 })
-                    .then(resposne => response.json())
-                    .then(data => console.log(data))
-                    
+                    // .then(resposne => response.json())
+                    // .then(data => console.log(data))
                 this.items = this.getItems()
             }
         },

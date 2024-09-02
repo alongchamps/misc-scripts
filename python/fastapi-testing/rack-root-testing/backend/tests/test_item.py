@@ -46,6 +46,32 @@ def testUpdateItem2():
     assert response.content.find(b"item2test") > 0
     assert response.content.find(b"newDescription2") > 0
 
+def testNewItem3():
+    response = client.post("/items/", json={"name": "item3","description": "description3"})
+    assert response.status_code == 201
+
+def testUpdateItemPut():
+    response = client.put("/items/3", json={"name": "item3test", "description": "item3desc"})
+    assert response.status_code == 202
+
+    response = client.get("/items/3")
+    assert response.status_code == 200
+    assert response.content.find(b"item3test") > 0
+    assert response.content.find(b"item3desc") > 0
+
+    #should fail with HTTP 422, this is only a partial update
+    response = client.put("/items/3", json={"name": "newName"})
+    assert response.status_code == 422
+
+    #should fail with HTTP 422, this is only a partial update
+    response = client.put("/items/3", json={"description": "newDescription2"})
+    assert response.status_code == 422
+
+    # response = client.get("/items/2")
+    # assert response.status_code == 200
+    # assert response.content.find(b"item2test") > 0
+    # assert response.content.find(b"newDescription2") > 0
+
 # test that we get back a valid respond when asking for '/items/'
 def testGetAllInventoryItems():
     response = client.get("/items/")

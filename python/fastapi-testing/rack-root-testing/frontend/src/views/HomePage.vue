@@ -1,3 +1,3 @@
 <template>
-    <h2>One place to keep track of everything in your home lab</h2>
+    <h2>One place to keep<br />track of everything<br />in your home lab</h2>
 </template>

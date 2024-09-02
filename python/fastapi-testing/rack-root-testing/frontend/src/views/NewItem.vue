@@ -1,30 +1,28 @@
 <script>
     export default {
-        data(){
+        data() {
             return {
                 form: {
-                    itemName: '',
-                    itemDescription: ''
+                    name: '',
+                    description: ''
                 }
             }
         },
         methods: {
-            async newItem() {
+            async newItem(event) {
                 const res = await fetch('http://localhost:8000/items/', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({
-                            name: this.itemName,
-                            description: this.itemDescription
-                        })
-                    // body: JSON.stringify(this.form)
+                    body: JSON.stringify( this.form )
                 })
-                // .then(this.$router.push('/items'))
+                const newItem = await res.json()
+                this.$router.push('/items/' + newItem.id)
+                // .then(this.$router.push('/items/' + response.json().id ))
                 // todo: make this go to the SingleItem.vue page for the new item
                 // the backend may need to return the new ID
-                this.$router.push('/items')
+                // this.$router.push('/items/' + JSON.parse(res.json()).id)
             },
         },
     }
@@ -34,9 +32,9 @@
     <h2>Make a new item</h2><br />
     <form v-on:submit.prevent="newItem()">
         <p>Name</p>
-        <input v-model="itemName" />
+        <input v-model="form.name" lazy/>
         <p>Description</p>
-        <input v-model="itemDescription" />
+        <input v-model="form.description" lazy/>
         <br /><br />
         <button>Create Item</button>
     </form>

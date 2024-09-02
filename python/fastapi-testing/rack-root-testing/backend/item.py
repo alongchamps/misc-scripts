@@ -27,6 +27,11 @@ def update_item(item_id: int, item: ItemUpdate, db: Session = Depends(get_db)):
     db.commit()
     return itemsAffected
 
+def update_item_put(item_id: int, item: ItemCreate, db: Session = Depends(get_db)):
+    itemsAffected = db.query(Item).filter(Item.id == item_id).update(dict(**item.model_dump()))
+    db.commit()
+    return itemsAffected
+
 def delete_item(item_id: int, db: Session = Depends(get_db)):
     db_delete = db.query(Item).filter(Item.id == item_id).delete(synchronize_session="auto")
     db.commit()
