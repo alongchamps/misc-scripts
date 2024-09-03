@@ -4,6 +4,7 @@ import sqlalchemy
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String
 from pydantic import BaseModel
+from typing import Optional
 import os
 
 # Database setup
@@ -24,6 +25,11 @@ class Item(Base):
 class ItemCreate(BaseModel):
     name: str
     description: str
+
+# Pydantic model for updating a record
+class ItemUpdate(BaseModel):
+    name: Optional[str] = None
+    description: Optional[str] = None
 
 # Pydantic model for response data
 class ItemResponse(BaseModel):
