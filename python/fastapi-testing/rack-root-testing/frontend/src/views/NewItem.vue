@@ -32,10 +32,10 @@
     <h2>Make a new item</h2><br />
     <form v-on:submit.prevent="newItem()">
         <p>Name</p>
-        <input v-model="form.name" lazy/>
+        <pvinput v-model="form.name" lazy/>
         <p>Description</p>
-        <input v-model="form.description" lazy/>
+        <pvinput v-model="form.description" lazy/>
         <br /><br />
-        <button>Create Item</button>
+        <pvbutton>Create Item</pvbutton>
     </form>
 </template>

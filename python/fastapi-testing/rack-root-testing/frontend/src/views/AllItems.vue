@@ -33,7 +33,7 @@
         <li v-for="item in items" :key="item.id">
             <router-link :to="{ name: 'SingleItem', params: { id: item.id } }">{{ item.name }}</router-link> - {{ item.description }} - {{ item.id }}
             <form @submit.prevent="deleteItem(item.id)">
-                <button>Delete Item</button>
+                <pvbutton>Delete Item</pvbutton>
             </form>
             <br />
         </li>

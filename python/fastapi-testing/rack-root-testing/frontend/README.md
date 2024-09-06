@@ -26,3 +26,9 @@ source ./venv-rr/bin/activate
 cd frontend
 npm run dev
 ```
+
+### PrimeVue themes
+```
+npm install primevue
+npm install @primevue/themes
+```

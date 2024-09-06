@@ -34,10 +34,10 @@
     <h2>Edit an item</h2><br />
     <form v-on:submit.prevent="updateItemDetails()">
         <p>Name</p>
-        <input v-model="form.name" lazy/>
+        <pvinput v-model="form.name" lazy/>
         <p>Description</p>
-        <input v-model="form.description" lazy/>
+        <pvinput v-model="form.description" lazy/>
         <br /><br />
-        <button>Update Item Details</button>
+        <pvbutton>Update Item Details</pvbutton>
     </form>
 </template>
